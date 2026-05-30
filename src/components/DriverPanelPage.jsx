@@ -628,17 +628,7 @@ function TripCard({ trip, isDark, text, sub, card, border, inputBg, onAction, ot
             )}
           </div>
         )}
-
-        {/* OTP display for customer (shown for accepted trips) */}
-        {trip.status === "Accepted" && trip.otp && (
-          <div style={{
-            marginTop: 10, padding: "8px 14px", background: "#3b82f610",
-            borderRadius: 8, border: "1px solid #3b82f630", fontSize: 12, color: "#3b82f6"
-          }}>
-            🔐 Customer OTP: <strong style={{ fontFamily: "'Space Mono', monospace", fontSize: 14 }}>{trip.otp}</strong>
-            <span style={{ color: sub, marginLeft: 8 }}>(Show to customer if needed)</span>
-          </div>
-        )}
+      
       </div>
     </div>
   );
