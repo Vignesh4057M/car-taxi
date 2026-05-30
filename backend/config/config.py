@@ -16,3 +16,5 @@ class Config:
         'CORS_ORIGINS',
         'http://localhost:5173,http://localhost:3000'
     ).split(',')
+    SESSION_COOKIE_SAMESITE = os.getenv('SESSION_COOKIE_SAMESITE', 'None')
+    SESSION_COOKIE_SECURE = os.getenv('SESSION_COOKIE_SECURE', 'True') == 'True'
