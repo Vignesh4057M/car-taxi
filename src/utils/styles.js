@@ -44,6 +44,9 @@ export function getStyles(isDark) {
     navLinks: {
       display: "flex", gap: 4, alignItems: "center",
     },
+    navLinksDesktop: {
+      display: "flex", gap: 4, alignItems: "center",
+    },
     navBtn: {
       background: "transparent", border: `1px solid ${isDark ? "#30364b" : "#202020"}`, color: isDark ? "#e8e8e8" : "#222", padding: "10px 22px",
       borderRadius: 999, cursor: "pointer", fontSize: 14, fontFamily: "'Sora', sans-serif",
@@ -140,9 +143,9 @@ export function getStyles(isDark) {
       color: "#aaa", textAlign: "center", fontSize: 16, marginBottom: 48,
       maxWidth: 500, margin: "0 auto 48px",
     },
-    grid3: { display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: 24 },
-    grid4: { display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))", gap: 20 },
-    grid2: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 },
+    grid3: { display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: 24 },
+    grid4: { display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: 20 },
+    grid2: { display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))", gap: 16 },
 
     // SERVICE CARDS
     serviceCard: {
@@ -198,7 +201,7 @@ export function getStyles(isDark) {
 
     // FOOTER
     footer: { background: isDark ? "#080b13" : "#ffffff", padding: "60px 0 0", borderTop: `1px solid ${border}` },
-    footerGrid: { display: "grid", gridTemplateColumns: "2fr 1fr 1fr", gap: 48, paddingBottom: 48 },
+    footerGrid: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 32, paddingBottom: 48 },
     footerHead: { color: gold, fontSize: 13, fontWeight: 700, letterSpacing: 2, marginBottom: 16, textTransform: "uppercase" },
     footerText: { color: isDark ? "#666" : "#999", fontSize: 14, marginBottom: 8 },
     footerBottom: {
@@ -263,7 +266,7 @@ export function getStyles(isDark) {
     },
     bookContainer: {
       maxWidth: 860, margin: "0 auto", background: dark2,
-      border: `1px solid ${border2}`, borderRadius: 20, padding: 36,
+      border: `1px solid ${border2}`, borderRadius: 20, padding: "36px 36px",
       boxShadow: `0 24px 80px rgba(0,0,0,${isDark ? "0.5" : "0.1"})`,
     },
     backBtn: {
@@ -338,7 +341,7 @@ export function getStyles(isDark) {
       borderRadius: 8, cursor: "pointer", fontSize: 14, textAlign: "left",
       fontFamily: "'Sora', sans-serif", width: "100%", marginTop: 4,
     },
-    dashContent: { marginLeft: 240, flex: 1, padding: 32 },
+    dashContent: { marginLeft: 240, flex: 1, padding: 32, minWidth: 0 },
     dashTitle: {
       color: textPrimary, fontSize: 24, fontWeight: 800, marginBottom: 24,
       fontFamily: "'Space Mono', monospace",

@@ -72,8 +72,8 @@ export default function BookNowPage({ session, setPage, showToast }) {
   });
 
   return (
-    <div style={styles.bookBg}>
-      <div style={styles.bookContainer}>
+    <div style={styles.bookBg} className="book-bg">
+      <div style={styles.bookContainer} className="book-container">
         <button style={styles.backBtn} onClick={() => setPage("home")}>
           ← Back to Home
         </button>

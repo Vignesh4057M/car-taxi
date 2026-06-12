@@ -30,8 +30,8 @@ export default function LoginPage({ setPage, onLogin, showToast }) {
   };
 
   return (
-    <div style={styles.authBg}>
-      <div style={styles.authCard}>
+    <div style={styles.authBg} className="auth-bg">
+      <div style={styles.authCard} className="auth-card">
         <div style={styles.authLogo}>NT</div>
         <h2 style={styles.authTitle}>Welcome Back</h2>
         <p style={styles.authSub}>Sign in to your Namma Taxi account</p>

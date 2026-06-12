@@ -46,8 +46,8 @@ export default function RegisterPage({ setPage, onLogin, showToast }) {
   });
 
   return (
-    <div style={styles.authBg}>
-      <div style={{ ...styles.authCard, maxWidth: 520 }}>
+    <div style={styles.authBg} className="auth-bg">
+      <div style={{ ...styles.authCard, maxWidth: 520 }} className="auth-card">
         <div style={styles.authLogo}>NT</div>
         <h2 style={styles.authTitle}>Create Account</h2>
         <p style={styles.authSub}>Join Namma Taxi today</p>

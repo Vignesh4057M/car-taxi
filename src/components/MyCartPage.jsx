@@ -46,7 +46,7 @@ export default function MyCartPage({ session, setPage, showToast }) {
   return (
     <div style={styles.pageBg}>
       <div style={styles.container}>
-        <div style={styles.pageHeader}>
+        <div style={styles.pageHeader} className="page-header">
           <h2 style={styles.pageTitle}>My Trips</h2>
           <button style={styles.heroCta} onClick={() => setPage("booknow")}>
             + Book New Trip

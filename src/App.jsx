@@ -69,16 +69,47 @@ function AppInner() {
         ::-webkit-scrollbar-track { background: ${isDark ? "#111" : "#eee"}; }
         ::-webkit-scrollbar-thumb { background: #d4a017; border-radius: 3px; }
         .nav-links { display: flex; gap: 4px; align-items: center; }
+        .hamburger-btn { display: none !important; }
         @media (max-width: 980px) {
           table { min-width: 760px; }
         }
         @media (max-width: 768px) {
-          .nav-links { display: none; flex-direction: column; position: absolute; top: 76px; left: 0; right: 0;
-            background: ${isDark ? "#0d0d0d" : "#ffffff"}; padding: 16px;
-            border-top: 1px solid ${isDark ? "#222" : "#ddd"}; z-index: 100; }
-          .nav-links.open { display: flex !important; }
-          .mobile-theme-btn { display: flex !important; }
-        }
+          .nav-links { display: none !important; }
+          .hamburger-btn { display: flex !important; }
+
+          /* Hero */
+          section[style*="78vh"] { padding: 80px 20px 60px !important; min-height: 60vh !important; }
+
+          /* Auth cards */
+          .auth-card { padding: 24px 16px !important; max-width: calc(100% - 32px) !important; }
+
+          /* Book page */
+          .book-bg { padding: 20px 12px !important; }
+          .book-container { padding: 20px 14px !important; }
+
+          /* Footer grid */
+          div[style*="repeat(auto-fit, minmax(200px"] { grid-template-columns: 1fr !important; }
+
+          /* Dashboard: sidebar hidden, content full width */
+          .admin-sidebar { transform: translateX(-100%); position: fixed; }
+          .dash-content { margin-left: 0 !important; }
+          .driver-main { margin-left: 0 !important; }
+
+          /* Stats grid 2-col on tablet */
+          div[style*="repeat(auto-fill, minmax(200px"] { grid-template-columns: 1fr 1fr !important; }
+
+          /* Tables scrollable */
+          table { min-width: 560px !important; }
+
+          /* Fare card */
+          div[style*="fareCard"] { flex-direction: column !important; align-items: flex-start !important; }
+
+          /* Page header */
+          .page-header { flex-direction: column !important; align-items: flex-start !important; gap: 12px !important; }
+          .dash-header { flex-direction: column !important; align-items: flex-start !important; gap: 12px !important; }
+
+          /* Stats grid 2-col on tablet */
+          div[style*="repeat(auto-fill, minmax(200px"] { grid-template-columns: 1fr 1fr !important; }
         input, select, textarea { color-scheme: ${isDark ? "dark" : "light"}; }
       `}</style>
 

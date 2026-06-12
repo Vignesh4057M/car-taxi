@@ -113,7 +113,8 @@ export default function DriverPanelPage({ session, setPage, showToast, onLogout 
       {/* Mobile overlay */}
       {sideOpen && (
         <div onClick={() => setSideOpen(false)} style={{
-          position: "fixed", inset: 0, background: "rgba(0,0,0,0.5)", zIndex: 90
+          position: "fixed", inset: 0, background: "rgba(0,0,0,0.5)",
+          zIndex: 200, backdropFilter: "blur(2px)"
         }} />
       )}
 
@@ -121,21 +122,27 @@ export default function DriverPanelPage({ session, setPage, showToast, onLogout 
       <div style={{
         width: 240, background: sidebar, borderRight: `1px solid ${border}`,
         display: "flex", flexDirection: "column", position: "fixed", top: 0, bottom: 0, left: 0,
-        zIndex: 100, transform: sideOpen ? "translateX(0)" : undefined,
-        transition: "transform 0.3s ease",
-      }} className="driver-sidebar">
+        zIndex: 300, transition: "transform 0.28s cubic-bezier(.4,0,.2,1)",
+        overflowY: "auto",
+      }} className={`driver-sidebar${sideOpen ? " open" : ""}`}>
         {/* Logo */}
         <div style={{ padding: "20px 20px 12px", borderBottom: `1px solid ${border}` }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
-            <div style={{
-              width: 38, height: 38, borderRadius: 10,
-              background: `linear-gradient(135deg, ${gold}, ${goldLight})`,
-              display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18
-            }}>🚖</div>
-            <div>
-              <div style={{ color: text, fontWeight: 700, fontSize: 13, fontFamily: "'Space Mono', monospace" }}>NAMMA TAXI</div>
-              <div style={{ color: sub, fontSize: 11 }}>Driver Panel</div>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <div style={{
+                width: 38, height: 38, borderRadius: 10,
+                background: `linear-gradient(135deg, ${gold}, ${goldLight})`,
+                display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18
+              }}>🚖</div>
+              <div>
+                <div style={{ color: text, fontWeight: 700, fontSize: 13, fontFamily: "'Space Mono', monospace" }}>NAMMA TAXI</div>
+                <div style={{ color: sub, fontSize: 11 }}>Driver Panel</div>
+              </div>
             </div>
+            <button className="driver-sidebar-close" onClick={() => setSideOpen(false)} style={{
+              display: "none", background: "none", border: "none",
+              color: sub, fontSize: 20, cursor: "pointer"
+            }}>✕</button>
           </div>
 
           {/* Online/Offline Toggle */}
@@ -208,7 +215,7 @@ export default function DriverPanelPage({ session, setPage, showToast, onLogout 
       </div>
 
       {/* Main */}
-      <div style={{ flex: 1, marginLeft: 240, minHeight: "100vh" }} className="driver-main">
+      <div style={{ flex: 1, marginLeft: 240, minHeight: "100vh", minWidth: 0 }} className="driver-main">
         {/* Top bar */}
         <div style={{
           position: "sticky", top: 0, background: sidebar,
@@ -219,7 +226,7 @@ export default function DriverPanelPage({ session, setPage, showToast, onLogout 
           <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
             <button className="driver-ham" onClick={() => setSideOpen(!sideOpen)} style={{
               display: "none", background: "none", border: "none", color: text,
-              fontSize: 22, cursor: "pointer"
+              fontSize: 22, cursor: "pointer", padding: 0,
             }}>☰</button>
             <div>
               <div style={{ color: text, fontWeight: 700, fontSize: 16 }}>
@@ -525,11 +532,13 @@ export default function DriverPanelPage({ session, setPage, showToast, onLogout 
       </div>
 
       <style>{`
+        .driver-sidebar { }
         @media (max-width: 768px) {
           .driver-sidebar { transform: translateX(-100%); }
-          .driver-sidebar.open { transform: translateX(0); }
+          .driver-sidebar.open { transform: translateX(0) !important; }
           .driver-main { margin-left: 0 !important; }
           .driver-ham { display: flex !important; }
+          .driver-sidebar-close { display: flex !important; }
         }
       `}</style>
     </div>
