@@ -52,66 +52,84 @@ function AppInner() {
   return (
     <div style={{ minHeight: "100vh", background: bg, fontFamily: "'Sora', sans-serif" }}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap');
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background: ${bg}; transition: background 0.3s ease; overflow-x: hidden; }
-        img { max-width: 100%; }
-        button { transition: transform .2s ease, box-shadow .2s ease, background .2s ease; }
-        button:hover { transform: translateY(-1px); }
-        table { min-width: 720px; }
-        .table-wrap, [style*="overflow"] { max-width: 100%; } 
-        .hover-card { transition: transform 0.25s ease, box-shadow 0.25s ease; }
-        .hover-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,0.5) !important; }
-        @keyframes slideIn { from { transform: translateX(40px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
-        @keyframes fadeUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-        select option { background: ${selectOptionBg}; color: ${isDark ? "#fff" : "#111"}; }
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: ${isDark ? "#111" : "#eee"}; }
-        ::-webkit-scrollbar-thumb { background: #d4a017; border-radius: 3px; }
-        .nav-links { display: flex; gap: 4px; align-items: center; }
-        .hamburger-btn { display: none !important; }
-        @media (max-width: 980px) {
-          table { min-width: 760px; }
-        }
-        @media (max-width: 768px) {
-          .nav-links { display: none !important; }
-          .hamburger-btn { display: flex !important; }
+  @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap');
 
-          /* Hero */
-          section[style*="78vh"] { padding: 80px 20px 60px !important; min-height: 60vh !important; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: ${bg}; transition: background 0.3s ease; overflow-x: hidden; }
+  img { max-width: 100%; }
+  button { transition: transform .2s ease, box-shadow .2s ease, background .2s ease; }
+  button:hover { transform: translateY(-1px); }
+  table { min-width: 720px; }
+  .table-wrap, [style*="overflow"] { max-width: 100%; }
+  .hover-card { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+  .hover-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,0.5) !important; }
 
-          /* Auth cards */
-          .auth-card { padding: 24px 16px !important; max-width: calc(100% - 32px) !important; }
+  @keyframes slideIn {
+    from { transform: translateX(40px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
 
-          /* Book page */
-          .book-bg { padding: 20px 12px !important; }
-          .book-container { padding: 20px 14px !important; }
+  @keyframes fadeUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
 
-          /* Footer grid */
-          div[style*="repeat(auto-fit, minmax(200px"] { grid-template-columns: 1fr !important; }
+  select option { background: ${selectOptionBg}; color: ${isDark ? "#fff" : "#111"}; }
 
-          /* Dashboard: sidebar hidden, content full width */
-          .admin-sidebar { transform: translateX(-100%); position: fixed; }
-          .dash-content { margin-left: 0 !important; }
-          .driver-main { margin-left: 0 !important; }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: ${isDark ? "#111" : "#eee"}; }
+  ::-webkit-scrollbar-thumb { background: #d4a017; border-radius: 3px; }
 
-          /* Stats grid 2-col on tablet */
-          div[style*="repeat(auto-fill, minmax(200px"] { grid-template-columns: 1fr 1fr !important; }
+  .nav-links { display: flex; gap: 4px; align-items: center; }
+  .hamburger-btn { display: none !important; }
 
-          /* Tables scrollable */
-          table { min-width: 560px !important; }
+  @media (max-width: 980px) {
+    table { min-width: 760px; }
+  }
 
-          /* Fare card */
-          div[style*="fareCard"] { flex-direction: column !important; align-items: flex-start !important; }
+  @media (max-width: 768px) {
+    .nav-links { display: none !important; }
 
-          /* Page header */
-          .page-header { flex-direction: column !important; align-items: flex-start !important; gap: 12px !important; }
-          .dash-header { flex-direction: column !important; align-items: flex-start !important; gap: 12px !important; }
+    .nav-links.open {
+      display: flex !important;
+      flex-direction: column;
+      position: absolute;
+      top: 76px;
+      left: 0;
+      right: 0;
+      background: ${isDark ? "#0d0d0d" : "#ffffff"};
+      padding: 16px;
+      border-top: 1px solid ${isDark ? "#222" : "#ddd"};
+      z-index: 100;
+    }
 
-          /* Stats grid 2-col on tablet */
-          div[style*="repeat(auto-fill, minmax(200px"] { grid-template-columns: 1fr 1fr !important; }
-        input, select, textarea { color-scheme: ${isDark ? "dark" : "light"}; }
-      `}</style>
+    .hamburger-btn { display: flex !important; }
+
+    section[style*="78vh"] { padding: 80px 20px 60px !important; min-height: 60vh !important; }
+
+    .auth-card { padding: 24px 16px !important; max-width: calc(100% - 32px) !important; }
+
+    .book-bg { padding: 20px 12px !important; }
+    .book-container { padding: 20px 14px !important; }
+
+    div[style*="repeat(auto-fit, minmax(200px"] { grid-template-columns: 1fr !important; }
+
+    .admin-sidebar { transform: translateX(-100%); position: fixed; }
+    .dash-content { margin-left: 0 !important; }
+    .driver-main { margin-left: 0 !important; }
+
+    div[style*="repeat(auto-fill, minmax(200px"] { grid-template-columns: 1fr 1fr !important; }
+
+    table { min-width: 560px !important; }
+
+    div[style*="fareCard"] { flex-direction: column !important; align-items: flex-start !important; }
+
+    .page-header { flex-direction: column !important; align-items: flex-start !important; gap: 12px !important; }
+    .dash-header { flex-direction: column !important; align-items: flex-start !important; gap: 12px !important; }
+  }
+
+  input, select, textarea { color-scheme: ${isDark ? "dark" : "light"}; }
+`}</style>
 
       {!isFullPage && (
         <Navbar page={page} setPage={setPage} session={session} onLogout={handleLogout} />
