@@ -1,12 +1,13 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
-from backend.config.config import Config
-from backend.database.db import db
-from backend.database.init_db import init_database
-from backend.routes.admin_routes import admin_bp
-from backend.routes.auth_routes import auth_bp
-from backend.routes.booking_routes import booking_bp
-from backend.routes.driver_routes import driver_bp
+
+from config.config import Config
+from database.db import db
+from database.init_db import init_database
+from routes.admin_routes import admin_bp
+from routes.auth_routes import auth_bp
+from routes.booking_routes import booking_bp
+from routes.driver_routes import driver_bp
 
 
 def create_app():
@@ -31,6 +32,7 @@ def create_app():
 
     init_database(app)
     return app
+
 
 app = create_app()
 
