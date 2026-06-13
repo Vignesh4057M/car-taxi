@@ -1,5 +1,5 @@
 from sqlalchemy import text
-from backend.database.db import db
+from database.db import db
 
 MIGRATIONS = [
     "ALTER TABLE driver ADD COLUMN password VARCHAR(200)",
