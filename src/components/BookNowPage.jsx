@@ -88,6 +88,23 @@ export default function BookNowPage({ session, setPage, showToast }) {
           </div>
         )}
 
+        <div style={styles.formGroup}>
+            <label style={styles.labelDark}>Customer Name</label>
+            <input placeholder="Full name" {...f("customer_name")} />
+          </div>
+          <div style={styles.formGroup}>
+            <label style={styles.labelDark}>Customer Phone</label>
+            <input placeholder="10-digit number" maxLength={10} {...f("customer_phone")} />
+          </div>
+          <div style={styles.formGroup}>
+            <label style={styles.labelDark}>Customer Age</label>
+            <input type="number" min="15" max="99" placeholder="Age" {...f("customer_age")} />
+          </div>
+          <div style={styles.formGroup}>
+            <label style={styles.labelDark}>Passengers</label>
+            <input type="number" min="1" placeholder="Number of passengers" {...f("passengers_accompanying")} />
+          </div>
+
         <div style={styles.grid2}>
           <div style={styles.formGroup}>
             <label style={styles.labelDark}>Driver</label>
@@ -133,22 +150,7 @@ export default function BookNowPage({ session, setPage, showToast }) {
               <option value="non_ac">Non-AC</option>
             </select>
           </div>
-          <div style={styles.formGroup}>
-            <label style={styles.labelDark}>Customer Name</label>
-            <input placeholder="Full name" {...f("customer_name")} />
-          </div>
-          <div style={styles.formGroup}>
-            <label style={styles.labelDark}>Customer Phone</label>
-            <input placeholder="10-digit number" maxLength={10} {...f("customer_phone")} />
-          </div>
-          <div style={styles.formGroup}>
-            <label style={styles.labelDark}>Customer Age</label>
-            <input type="number" min="15" max="99" placeholder="Age" {...f("customer_age")} />
-          </div>
-          <div style={styles.formGroup}>
-            <label style={styles.labelDark}>Passengers</label>
-            <input type="number" min="1" placeholder="Number of passengers" {...f("passengers_accompanying")} />
-          </div>
+          
         </div>
         <div style={styles.formGroup}>
           <label style={styles.labelDark}>Notes</label>
