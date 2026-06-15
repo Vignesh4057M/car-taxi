@@ -1,10 +1,10 @@
 from datetime import datetime
 from flask import Blueprint, jsonify, request, session
 from sqlalchemy.orm import joinedload
-from backend.database.db import db
-from backend.middlewares.auth_middleware import user_required
-from backend.models.models import Car, Trip
-from backend.utils.helpers import calculate_fare, generate_otp, safe_float, safe_int
+from database.db import db
+from middlewares.auth_middleware import user_required
+from models.models import Car, Trip
+from utils.helpers import calculate_fare, generate_otp, safe_float, safe_int
 
 booking_bp = Blueprint('booking', __name__)
 

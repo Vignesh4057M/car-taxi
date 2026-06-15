@@ -1,6 +1,5 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
-
 from config.config import Config
 from database.db import db
 from database.init_db import init_database
@@ -32,7 +31,6 @@ def create_app():
 
     init_database(app)
     return app
-
 
 app = create_app()
 

@@ -1,9 +1,10 @@
 from flask import Blueprint, jsonify, request
 from werkzeug.security import generate_password_hash
 from sqlalchemy.orm import joinedload
-from backend.database.db import db
-from backend.middlewares.auth_middleware import admin_required
-from backend.models.models import Car, Driver, Trip
+
+from database.db import db
+from middlewares.auth_middleware import admin_required
+from models.models import Car, Driver, Trip
 
 admin_bp = Blueprint('admin', __name__)
 

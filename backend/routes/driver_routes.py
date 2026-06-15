@@ -2,9 +2,9 @@ from datetime import date, timedelta
 from flask import Blueprint, jsonify, request, session
 from sqlalchemy import func
 from sqlalchemy.orm import joinedload
-from backend.database.db import db
-from backend.middlewares.auth_middleware import driver_required
-from backend.models.models import Car, Driver, Trip
+from database.db import db
+from middlewares.auth_middleware import driver_required
+from models.models import Car, Driver, Trip
 
 driver_bp = Blueprint('driver', __name__)
 
